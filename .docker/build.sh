@@ -24,7 +24,6 @@ function usage {
   exit
 }
 
-version=''
 do_push=0
 
 declare -a userargs skiplist
@@ -38,7 +37,7 @@ done
 
 # build Docker image
 echo "Building Docker image $image:$tag ..."
-#docker build -t $image:$tag .
+docker build -t $image:$tag .
 
 # push image to Docker Hub
 if [ $do_push == 1 ]; then
