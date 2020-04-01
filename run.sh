@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-version='20200330'
+version='20200401'
 author='Robert Nikutta & Data Lab Team <nikutta@noao.edu>'
 
 # Set CWD to the location of this script
 cd "$(dirname "$0")"
 
 # Source the config file
-. ./.config
+. .docker/.config
+
+# extract dir name and tgz file name from URL
+nbdatafile=$(basename $nbdataurl)
+nbdatadir=$(basename $nbdatafile .tgz)
 
 # Pull container image from docker hub
 if [ ! $(docker images -q $image:$tag) ]
@@ -30,9 +34,9 @@ fi
 if [ ! "$(ls -A $nbdatadir)" ]
 then
     echo "Downloading data files for notebooks. Please wait..."
-#    wget ftp://ftp.noao.edu/pub/datalab/nbdata.tgz
+    wget $nbdataurl
     echo "Uncompressing notebook data..."
-#    tar xvfz nbdata.tgz   
+    tar xvfz $nbdatafile
     echo "Done."
 else
     echo "Data files for notebooks already present on local machine."
