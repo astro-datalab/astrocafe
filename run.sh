@@ -17,7 +17,7 @@ nbdatadir=$(basename $nbdatafile .tgz)
 if [ ! $(docker images -q $image:$tag) ]
 then
     echo "Pulling Docker image $image:$tag from Docker Hub. Please wait..."
-    #docker pull $image:$tag
+    docker pull $image:$tag
     echo "Done."
 else
     echo "Docker image $image:$tag already present on local machine.";
@@ -48,4 +48,4 @@ echo "############################################################"
 echo "       Point your prowser to: http://localhost:$hostport"
 echo "############################################################"
 echo
-sudo docker run -it -v $(pwd)/nbdata:/nbdata -p $hostport:8888 $image:$tag
+docker run -it -v $(pwd)/nbdata:/nbdata -p $hostport:8888 $image:$tag
