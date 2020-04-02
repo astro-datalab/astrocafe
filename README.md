@@ -1,3 +1,7 @@
+*Author:* Robert Nikutta [nikutta@noao.edu] and the Data Lab Team [datalab@noao.edu]
+
+*Version:* 20200402
+
 # astrocafe
 Notebooks for TeenAstronomyCafe, in a Docker container.
 
@@ -11,7 +15,32 @@ Install "Docker for Mac", following the instuctions here:
 
 https://docs.docker.com/docker-for-mac/install/
 
+You do not need to create an account on Docker Hub. Just skip that step.
+
 ### Linux
+
+It's easiest to install Docker using your Linux distribution's default
+package manager. For instance, on Ubuntu-based systems, run:
+
+```
+sudo apt-get install docker
+```
+
+For convenience you may wish to add yourself to the docker group. It
+will allow you to run Docker commands without 'sudo' each time:
+
+```
+sudo groupadd docker            # create a 'docker' group
+sudo usermod -aG docker $USER   # add yourself to the 'docker' group
+```
+
+Finally, change permissions on the Docker config file:
+
+```
+sudo chmod g+rwx "$HOME/.docker" -R
+```
+
+Now log out and back in again so that the new group memberships become recognized.
 
 ## Run the AstroCafe Docker container
 
