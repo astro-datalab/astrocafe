@@ -34,7 +34,7 @@ fi
 if [ ! "$(ls -A $nbdatadir)" ]
 then
     echo "Downloading data files for notebooks. Please wait..."
-    wget $nbdataurl
+    curl $nbdataurl -o $nbdatafile
     echo "Uncompressing notebook data..."
     tar xvfz $nbdatafile
     echo "Done."
