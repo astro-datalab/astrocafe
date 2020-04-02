@@ -68,7 +68,7 @@ Finally, when the script tells you this:
 
 ```
 ############################################################
-       Point your prowser to: http://localhost:8888
+       Point your browser to: http://localhost:8888
 ############################################################
 ```
 

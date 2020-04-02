@@ -45,7 +45,7 @@ fi
 # Run container, while mounting nbdata as volume
 echo
 echo "############################################################"
-echo "       Point your prowser to: http://localhost:$hostport"
+echo "       Point your browser to: http://localhost:$hostport"
 echo "############################################################"
 echo
 docker run -it -v $(pwd)/nbdata:/nbdata -p $hostport:8888 $image:$tag
